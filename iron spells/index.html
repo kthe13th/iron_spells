@@ -1,0 +1,206 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: #211d1d;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner {
+      max-width: 60%;
+      height: auto;
+      display: block; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-container {
+      position: relative; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      background-color: rgba(139, 69, 19, 0.7);
+      max-width: 1100px;
+      width: 100%;
+      height: auto ;
+      padding-top: 70px;
+      padding-bottom: 70px;
+      margin: 30px auto 70px auto;
+      border-radius: 70px;
+    }
+
+    .gallery-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .gallery-img {
+      width: calc(100% - 140px);
+      height: auto;
+      display: none;
+      object-fit: contain;
+    }
+
+    #gimg1 {
+      display: block;
+    }
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      padding: 5px 0;
+    }
+
+    /*checkbox*/
+    .nav-toggle {
+      display: none;
+    }
+
+    /*|||*/
+    .nav-close {
+      cursor: pointer;
+      color: white;
+      background-color: #333;
+      border-radius: 20px 0px 0px 20px;
+      padding: 26px 2px;
+      /*width: fit-content;*/
+      user-select: none;
+      text-align: center;
+    }
+    .mainnav {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      border-radius: 0px 20px 20px 0px;
+      padding: 10px;
+      flex-grow: 1;
+    }
+    .mainnav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 0 2px;
+    }
+
+    .mainnav a:hover {
+      background-color: #555;
+    }
+    #nav-toggle:checked ~ .mainnav {
+      display: none;
+    }
+    #nav-toggle:checked ~ .nav-close {
+  border-radius: 20px;
+  }
+    h1 {
+      text-align: center;
+      color: #111111;
+    }
+
+    h2 {
+      color: #111111;
+      margin-top: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #111111;
+    }
+
+    ul {
+      color: #111111;
+    }
+
+    a {
+      color: #033e79;
+      text-decoration: none;
+    }
+
+    .s-q {
+      font-size: 19px;
+      text-align: center;
+      font-style: italic;
+      margin-top: 30px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html">
+    <img src="iron/gallery/msc/banner.png" alt="Banner" class="banner">
+  </a>
+
+  <section class="gallery-container">
+    <img src="iron/gallery/msc/frame.png" class="gallery-frame">
+    <img src="iron/gallery/msc/flamebearer.png" class="gallery-img" id="gimg1" data-tab="gimg1">
+    <img src="iron/gallery/msc/armor.png" class="gallery-img" id="gimg2" data-tab="gimg2">
+  </section>
+  <section class="nav-wrap">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
+    <nav class="mainnav">
+      <a href="iron/spells.html">Spells</a>
+      <a href="iron/spellbooks.html">Spellbooks</a>
+      <a href="iron/items.html">Items</a>
+      <a href="iron/mechanics.html">Mechanics</a>
+    </nav>
+  </section>
+
+  <section class="container">
+    <h1>Iron's Spells & Spellbooks</h1>
+    <p>
+      <b>Iron's Spells & Spellbooks</b> is a Minecraft magic mod inspired by classic RPG spellcasting. Its goal is to bring a deep, progressive spellcasting system into Minecraft, where players learn spells, craft magical gear, explore new structures, and fight magical foes.
+    </p>
+
+    <h2>Core Features</h2>
+    <ul>
+      <li>Over <b>100 upgradable spells</b> covering multiple schools of magic (Fire, Ice, Blood, Holy, Evocation, Ender, Eldritch, etc.).</li>
+      <li>New boss fights and magical enemies: 2 spellcasting bosses, as well as merchants, allies, and hostile spellcasters.</li>
+      <li>Magical armor sets and gear: multiple wizard armor sets designed to enhance mana, cool-down reduction, and spell power.</li>
+      <li>Randomly generated magical structures to explore, filled with loot, scrolls, and challenges.</li>
+      <li>Weapon imbuement and armor upgrade systems to enhance and bind spells to gear.</li>
+      <li>Compatibility with popular mods (JEI, JEED, Apotheosis, Tetra, Better Combat, Curios, Patchouli) and configurable options per spell.</li>
+    </ul>
+
+    <p class="s-q">
+      Ever dreamed of hurling a blazing fireball, freezing foes with ice, or summoning eldritch power at your fingertips? Click the <strong>Spells</strong> tab above and start your magical journey!
+    </p>
+
+    <h2>Useful Links</h2>
+    <p>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks">CurseForge</a> |
+      <a href="https://modrinth.com/mod/irons-spells-n-spellbooks">Modrinth</a> |
+      <a href="https://iron.wiki/">Official Wiki</a>
+    </p>
+
+    <p>
+      Also check out the <a href="https://modrinth.com/mod/skills">Skills</a> mod, which pairs nicely with this one. I recommend reading my explanation of it at <a href="pufferfish/skills.html">here</a>.
+    </p>
+  </section>
+
+</body>
+</html>

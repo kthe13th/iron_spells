@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #211d1d;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner {
+      max-width: 60%;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .mainnav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  border-radius: 0 20px 20px 0;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+    .mainnav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 0 2px;
+    }
+
+    .mainnav a:hover {
+      background-color: #555;
+    }
+
+    .mainnav a.on {
+      background-color: #426847;
+    }
+
+    .container {
+      max-width: 1000px;
+      min-height: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background-image: url('../gallery/spells/backrounds/fire.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border-radius: 5px;
+    }
+
+    .scroll-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 10px 10px ;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      padding: 5px 0;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-close {
+      cursor: pointer;
+      color: white;
+      background-color: #333;
+      border-radius: 20px 0 0 20px;
+      padding: 26px 2px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .mainnav {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      border-radius: 0 20px 20px 0;
+      padding: 10px;
+      flex-grow: 1;
+    }
+
+    .mainnav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 0 2px;
+    }
+
+    .mainnav a:hover {
+      background-color: #555;
+    }
+
+    .mainnav a.on {
+      background-color: #426847;
+    }
+
+    #nav-toggle:checked ~ .mainnav {
+      display: none;
+    }
+
+    #nav-toggle:checked ~ .nav-close {
+      border-radius: 20px;
+    }
+    .spellnav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: #333;
+      border-radius:  10px 10px 0 0;
+      padding: 10px;
+      margin-top: 0;
+    }
+
+    .spellnav a {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 2px;
+      font-size: 14px;
+    }
+
+    .spellnav a:hover {
+      background-color: #555;
+    }
+
+    .spellnav a.on {
+      background-color: #b44b1a;
+    }
+
+    img.spell-icon {
+      float: left;
+      max-width: 120px;
+      margin-right: 20px;
+    }
+
+    .des {
+      border: 1px solid white;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #888;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+    }
+
+    th, td {
+      border: 1px solid #888;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../../index.html">
+    <img src="../gallery/msc/banner.png" class="banner" alt="Banner">
+  </a>
+  <section class="nav-wrap">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
+    <nav class="mainnav">
+      <a href="../spells.html" class="on">Spells</a>
+      <a href="../spellbooks.html">Spellbooks</a>
+      <a href="../items.html">Items</a>
+      <a href="../mechanics.html">Mechanics</a>
+    </nav>
+  </section>
+
+  <section class="container">
+    <nav class="spellnav">
+        <a href="../spells.html">Overview</a>
+        <a href="fire.html" class="on">Fire</a>
+        <a href="ice.html">Ice</a>
+        <a href="lightning.html">Lightning</a>
+        <a href="holy.html">Holy</a>
+        <a href="ender.html">Ender</a>
+        <a href="evocation.html">Evocation</a>
+        <a href="nature.html">Nature</a>
+        <a href="Eldritch.html">Eldritch</a>
+        <a href="Blood.html">Blood</a>
+      </nav>
+  
+    <section class="scroll-section">
+      <img src="../gallery/icons/fireball.png" class="spell-icon" alt="Spell Icon">
+      <section class="des">
+        <p><strong>Usage:</strong> Casts a fireball that explodes on impact.</p>
+      </section>
+
+      <hr>
+      <p><strong>Description:</strong> A powerful burst of flame used to incinerate enemies from a distance. Great for crowd control and area denial.</p>
+      <hr>
+
+      <table>
+        <tr>
+          <th>Level</th>
+          <th>Mana Needed</th>
+          <th>Cast Time</th>
+          <th>Cooldown</th>
+          <th>Damage</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>15</td>
+          <td>1.2s</td>
+          <td>3s</td>
+          <td>8</td>
+        </tr>
+      </table>
+    </section>
+
+ 
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #211d1d;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner {
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      padding: 5px 0;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-close {
+      cursor: pointer;
+      color: white;
+      background-color: #333;
+      border-radius: 20px 0 0 20px;
+      padding: 26px 2px;
+      user-select: none;
+      text-align: center;
+    }
+
+    .mainnav {
+      display: flex;
+      justify-content: space-between;
+      background-color: #333;
+      border-radius: 0 20px 20px 0;
+      padding: 10px;
+      flex-grow: 1;
+    }
+
+    .mainnav a {
+      flex: 1;
+      text-align: center;
+      padding: 15px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 0 2px;
+    }
+
+    .mainnav a:hover {
+      background-color: #555;
+    }
+
+    .mainnav a.on {
+      background-color: #426847;
+    }
+
+    #nav-toggle:checked ~ .mainnav {
+      display: none;
+    }
+
+    #nav-toggle:checked ~ .nav-close {
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 5px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+     background-image: url('gallery/spells/backrounds/over.webp');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 200px;
+    }
+
+    .spell-section {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .spellnav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: #333;
+      padding: 10px;
+      margin: 0; /* flush */
+      border-radius:  10px 10px 0 0;
+    }
+
+    .spellnav a {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      color: white;
+      text-decoration: none;
+      border: 1px solid white;
+      margin: 2px;
+      font-size: 14px;
+    }
+
+    .spellnav a:hover {
+      background-color: #555;
+    }
+
+    .spellnav a.on {
+      background-color: #426847;
+    }
+
+    .spell-section h2,
+    .spell-section p {
+      color: white;
+      margin-left: 2px;
+    }
+
+    h2 {
+      color: #111;
+      margin-top: 20px;
+    }
+
+    p {
+      color: #111;
+      line-height: 1.6;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html">
+    <img src="gallery/msc/banner.png" alt="Banner" class="banner">
+  </a>
+  <section class="nav-wrap">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
+    <nav class="mainnav">
+      <a href="spells.html" class="on">Spells</a>
+      <a href="spellbooks.html">Spellbooks</a>
+      <a href="items.html">Items</a>
+      <a href="mechanics.html">Mechanics</a>
+    </nav>
+  </section>
+
+  <section class="container">
+    <section class="spell-section">
+      <nav class="spellnav">
+        <a href="spells.html" class="on">Overview</a>
+        <a href="types/fire.html">Fire</a>
+        <a href="types/ice.html">Ice</a>
+        <a href="types/lightning.html">Lightning</a>
+        <a href="types/holy.html">Holy</a>
+        <a href="types/ender.html">Ender</a>
+        <a href="types/evocation.html">Evocation</a>
+        <a href="types/nature.html">Nature</a>
+        <a href="types/Eldritch.html">Eldritch</a>
+        <a href="types/Blood.html">Blood</a>
+      </nav>
+
+      <h2>Spell Types</h2>
+      <p>Description about different kinds of spell types.</p>
+
+      <h2>Spell Level</h2>
+      <p>Explanation of what spell levels are and how they function.</p>
+
+      <h2>How to Increase the Spell Level</h2>
+      <p>Steps or mechanics for leveling up your spells.</p>
+
+      <h2>How to Get Spells</h2>
+      <p>Methods of acquiring new spells in the mod.</p>
+    </section>
+
+  </section>
+
+</body>
+</html>
