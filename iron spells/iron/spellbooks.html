@@ -10,11 +10,10 @@
     }
 
     .banner {
-    max-width: 60%;
-    height: auto;
-    display: block; 
-    margin-left: auto;
-    margin-right: auto;
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
 
     .nav-wrap {
@@ -81,10 +80,19 @@
     .container {
       max-width: 1000px;
       margin: 30px auto;
-      background-color: #fff;
+      padding: 20px;
+      background-image: url('gallery/backrounds/bookshelf.webp');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 500px;
+      border-radius: 5px;
+    }
+
+    .s-section {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
       padding: 20px;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     img.book-img,
@@ -93,25 +101,63 @@
       height: auto;
       display: inline-block;
       vertical-align: top;
+      border: 1px solid white;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .des {
+      border: 1px solid white;
+      padding: 10px;
+      margin: 20px 0;
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-    }
-
-    table, th, td {
-      border: 1px solid #333;
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: center;
+      color: white;
     }
 
     th {
-      background-color: #eee;
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #888;
+    }
+
+    td {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #888;
+    }
+
+    .slime {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -20px);
+    }
+
+    .slime div {
+      width: 20px;
+      height: 20px;
+      background-image: url(gallery/msc/slime.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .nav-stick {
+      display: none;
+    }
+
+    #nav-stick:checked ~ .nav-wrap {
+      position: initial;
+    }
+
+    #nav-stick:checked ~ .slime div {
+      background-image: url(gallery/msc/blueslime.webp);
     }
   </style>
 </head>
@@ -120,6 +166,10 @@
   <a href="../index.html">
     <img src="gallery/msc/banner.png" alt="Banner" class="banner">
   </a>
+
+  <input type="checkbox" id="nav-stick" class="nav-stick" />
+  <label for="nav-stick" class="slime" title="slime on!"><div></div></label>
+
   <section class="nav-wrap">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
@@ -132,23 +182,29 @@
   </section>
 
   <section class="container">
-    <img src="gallery/book.png" alt="Spellbook Image" class="book-img">
-    <img src="gallery/crafting.png" alt="Crafting Image" class="craft-img">
+    <section class="s-section">
+      <img src="" alt="Spellbook Image" class="book-img">
+      <img src="" alt="Crafting Image" class="craft-img">
 
-    <table>
-      <tr>
-        <th>Mana</th>
-        <th>Cast Time</th>
-        <th>Spell Cooldown</th>
-        <th>Spell Power</th>
-      </tr>
-      <tr>
-        <td>20</td>
-        <td>1.2s</td>
-        <td>3.5s</td>
-        <td>+15%</td>
-      </tr>
-    </table>
+      <section class="des">
+        <p><strong>Usage:</strong> Grants spellcasting ability and enhances power. Required for all magic use.</p>
+      </section>
+
+      <table>
+        <tr>
+          <th>Mana</th>
+          <th>Cast Time</th>
+          <th>Spell Cooldown</th>
+          <th>Spell Power</th>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>1.2s</td>
+          <td>3.5s</td>
+          <td>+15%</td>
+        </tr>
+      </table>
+    </section>
   </section>
 
 </body>
