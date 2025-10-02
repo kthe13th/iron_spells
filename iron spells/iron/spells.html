@@ -76,23 +76,48 @@
     #nav-toggle:checked ~ .nav-close {
       border-radius: 20px;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px;
-      border-radius: 5px;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-     background-image: url('gallery/spells/backrounds/over.webp');
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 200px;
+    .nav-stick {
+      display: none;
+    }
+    .slime {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -20px);
     }
 
-    .spell-section {
-      background-color: rgba(0, 0, 0, 0.5);
+    .slime div {
+      width: 20px;
+      height: 20px;
+      background-image: url(gallery/msc/slime.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .container {
+      max-width: 1000px;
+      min-height: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background-image: url('gallery/backrounds/over.webp');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 200px;
       border-radius: 5px;
-      margin-bottom: 20px;
+    }
+    #nav-stick:checked ~ .nav-wrap {
+      position: initial;
+    }
+
+    #nav-stick:checked ~ .slime div {
+      background-image: url(gallery/msc/blueslime.webp);
+    }
+
+    .scroll-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      border-radius: 0 0 10px 10px ;
+      max-height: 600px;
+      overflow-y: auto;
     }
 
     .spellnav {
@@ -100,9 +125,9 @@
       flex-wrap: wrap;
       justify-content: space-between;
       background-color: #333;
-      padding: 10px;
-      margin: 0; /* flush */
       border-radius:  10px 10px 0 0;
+      padding: 10px;
+      margin-top: 0;
     }
 
     .spellnav a {
@@ -124,26 +149,14 @@
       background-color: #426847;
     }
 
-    .spell-section h2,
-    .spell-section p {
-      color: white;
+    h2, p {
       margin-left: 2px;
-    }
-
-    h2 {
-      color: #111;
-      margin-top: 20px;
-    }
-
-    p {
-      color: #111;
-      line-height: 1.6;
     }
 
     hr {
       margin: 20px 0;
       border: none;
-      border-top: 1px solid #ccc;
+      border-top: 1px solid #888;
     }
   </style>
 </head>
@@ -152,6 +165,10 @@
   <a href="../index.html">
     <img src="gallery/msc/banner.png" alt="Banner" class="banner">
   </a>
+
+  <input type="checkbox" id="nav-stick" class="nav-stick" />
+  <label for="nav-stick" class="slime" title="slime on!"><div></div></label>
+
   <section class="nav-wrap">
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
     <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
@@ -164,20 +181,20 @@
   </section>
 
   <section class="container">
-    <section class="spell-section">
-      <nav class="spellnav">
-        <a href="spells.html" class="on">Overview</a>
-        <a href="types/fire.html">Fire</a>
-        <a href="types/ice.html">Ice</a>
-        <a href="types/lightning.html">Lightning</a>
-        <a href="types/holy.html">Holy</a>
-        <a href="types/ender.html">Ender</a>
-        <a href="types/evocation.html">Evocation</a>
-        <a href="types/nature.html">Nature</a>
-        <a href="types/Eldritch.html">Eldritch</a>
-        <a href="types/Blood.html">Blood</a>
-      </nav>
+    <nav class="spellnav">
+      <a href="spells.html" class="on">Overview</a>
+      <a href="types/fire.html">Fire</a>
+      <a href="types/ice.html">Ice</a>
+      <a href="types/lightning.html">Lightning</a>
+      <a href="types/holy.html">Holy</a>
+      <a href="types/ender.html">Ender</a>
+      <a href="types/evocation.html">Evocation</a>
+      <a href="types/nature.html">Nature</a>
+      <a href="types/Eldritch.html">Eldritch</a>
+      <a href="types/Blood.html">Blood</a>
+    </nav>
 
+    <section class="scroll-section">
       <h2>Spell Types</h2>
       <p>Description about different kinds of spell types.</p>
 
