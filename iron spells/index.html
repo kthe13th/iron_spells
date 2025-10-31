@@ -1,167 +1,197 @@
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron's Spells & Spellbooks</title>
   <style>
     body {
       background-color: #211d1d;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      color: #f0f0f0;
     }
 
-    .banner {
-      max-width: 60%;
-      height: auto;
-      display: block; 
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .gallery-container {
-      position: relative; 
+    .banner-wrap {
+      position: relative;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: auto;
-      background-color: rgba(139, 69, 19, 0.7);
-      max-width: 1100px;
-      width: 100%;
-      height: auto ;
-      padding-top: 70px;
-      padding-bottom: 70px;
-      margin: 30px auto 70px auto;
-      border-radius: 70px;
-    }
-
-    .gallery-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .gallery-img {
-      width: calc(100% - 140px);
-      height: auto;
-      display: none;
-      object-fit: contain;
-    }
-
-    #gimg1 {
-      display: block;
-    }
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      padding: 5px 0;
-    }
-
-    /*checkbox*/
-    .nav-toggle {
-      display: none;
-    }
-
-    /*|||*/
-    .nav-close {
-      cursor: pointer;
-      color: white;
-      background-color: #333;
-      border-radius: 20px 0px 0px 20px;
-      padding: 26px 2px;
-      /*width: fit-content;*/
-      user-select: none;
+      margin-top: 40px;
+      margin-bottom: 10px;
       text-align: center;
     }
+
+    .banner-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 245, 180, 0.6) 0%,
+        rgba(255, 230, 160, 0.25) 35%,
+        rgba(255, 180, 80, 0.15) 55%,
+        rgba(0, 0, 0, 0) 80%
+      );
+      filter: blur(60px) brightness(1.4);
+      z-index: 0;
+    }
+
+    .banner {
+      position: relative;
+      display: block;
+      max-width: 60%;
+      height: auto;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .nav-wrap {
+      background-color: #333;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0;
+      border-top: 2px solid #3f3f3f;
+      border-bottom: 2px solid #3f3f3f;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+      z-index: 100;
+      position: sticky;
+      top: 0;
+    }
+
     .mainnav {
       display: flex;
-      justify-content: space-between;
-      background-color: #333;
-      border-radius: 0px 20px 20px 0px;
-      padding: 10px;
-      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+      max-width: 1000px;
+      width: 100%;
+      gap: 6px;
     }
+
     .mainnav a {
       flex: 1;
       text-align: center;
-      padding: 15px 0;
+      padding: 14px 0;
       color: white;
       text-decoration: none;
       border: 1px solid white;
-      margin: 0 2px;
+      border-radius: 6px;
+      background-color: #333;
+      font-weight: bold;
+      font-size: 15px;
+      transition: background-color 0.25s ease;
     }
 
     .mainnav a:hover {
       background-color: #555;
     }
-    #nav-toggle:checked ~ .mainnav {
+
+    .mainnav a.on {
+      background-color: #426847;
+    }
+
+    .gallery-section {
+      position: relative;
+      max-width: 1000px;
+      height: 500px;
+      margin: 50px auto;
+      background: linear-gradient(180deg, rgba(139, 69, 19, 0.9) 0%, rgba(70, 35, 10, 0.9) 100%);
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .gallery-img {
+      max-width: 80%;
+      max-height: 90%;
       display: none;
-    }
-    #nav-toggle:checked ~ .nav-close {
-  border-radius: 20px;
-  }
-    h1 {
-      text-align: center;
-      color: #111111;
+      object-fit: contain;
+      border-radius: 10px;
     }
 
-    h2 {
-      color: #111111;
-      margin-top: 20px;
+    #gimg1 {
+      display: block;
     }
 
-    p {
-      line-height: 1.6;
-      color: #111111;
+    .content {
+      max-width: 900px;
+      margin: 60px auto 100px auto;
+      background-color: #2b2626;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1, h2 {
+      color: #ffffff;
+    }
+
+    p, ul {
+      color: #e0e0e0;
+      line-height: 1.7;
     }
 
     ul {
-      color: #111111;
+      padding-left: 20px;
     }
 
     a {
-      color: #033e79;
+      color: #8db8ff;
       text-decoration: none;
     }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
     .s-q {
-      font-size: 19px;
       text-align: center;
       font-style: italic;
-      margin-top: 30px;
-      color: #333;
+      font-size: 18px;
+      margin-top: 40px;
+      color: #ccc;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 10px 20px;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .links a:hover {
+      background-color: #555;
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html">
-    <img src="iron/gallery/msc/banner.png" alt="Banner" class="banner">
-  </a>
-
-  <section class="gallery-container">
-    <img src="iron/gallery/msc/frame.png" class="gallery-frame">
-    <img src="iron/gallery/msc/flamebearer.png" class="gallery-img" id="gimg1" data-tab="gimg1">
-    <img src="iron/gallery/msc/armor.png" class="gallery-img" id="gimg2" data-tab="gimg2">
+  <section class="banner-wrap">
+    <section class="banner-bg"></section>
+    <a href="index.html">
+      <img src="iron/gallery/msc/banner.png" alt="Iron's Spells & Spellbooks" class="banner">
+    </a>
   </section>
+
   <section class="nav-wrap">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
     <nav class="mainnav">
       <a href="iron/spells.html">Spells</a>
       <a href="iron/spellbooks.html">Spellbooks</a>
@@ -170,7 +200,14 @@
     </nav>
   </section>
 
-  <section class="container">
+  <section class="gallery-section">
+    <img src="iron/gallery/msc/flamebearer.png" class="gallery-img" id="gimg1" data-tab="gimg1">
+    <img src="iron/gallery/msc/armor.png" class="gallery-img" id="gimg2" data-tab="gimg2">
+    <img src="iron/gallery/msc/structures.png" class="gallery-img" id="gimg3" data-tab="gimg3">
+    <img src="iron/gallery/msc/spells.png" class="gallery-img" id="gimg4" data-tab="gimg4">
+  </section>
+
+  <section class="content">
     <h1>Iron's Spells & Spellbooks</h1>
     <p>
       <b>Iron's Spells & Spellbooks</b> is a Minecraft magic mod inspired by classic RPG spellcasting. Its goal is to bring a deep, progressive spellcasting system into Minecraft, where players learn spells, craft magical gear, explore new structures, and fight magical foes.
@@ -191,16 +228,33 @@
     </p>
 
     <h2>Useful Links</h2>
-    <p>
-      <a href="https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks">CurseForge</a> |
-      <a href="https://modrinth.com/mod/irons-spells-n-spellbooks">Modrinth</a> |
+    <div class="links">
+      <a href="https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks">CurseForge</a>
+      <a href="https://modrinth.com/mod/irons-spells-n-spellbooks">Modrinth</a>
       <a href="https://iron.wiki/">Official Wiki</a>
-    </p>
+    </div>
 
-    <p>
-      Also check out the <a href="https://modrinth.com/mod/skills">Skills</a> mod, which pairs nicely with this one. I recommend reading my explanation of it at <a href="pufferfish/skills.html">here</a>.
+    <p style="text-align:center; margin-top:25px;">
+      Also check out the <a href="https://modrinth.com/mod/skills">Skills</a> mod, which pairs nicely with this one. I recommend reading my explanation of it <a href="pufferfish/skills.html">here</a>.
     </p>
   </section>
+
+
+  <script>
+    var currentIMG = "gimg1";
+    function showIMG() {
+      var imgNumber = parseInt(currentIMG.replace("gimg", ""));
+      var total = 4;
+      document.getElementById(currentIMG).style.display = "none";
+      if (imgNumber === total) {
+        currentIMG = "gimg1";
+      } else {
+        currentIMG = "gimg" + (imgNumber + 1);
+      }
+      document.getElementById(currentIMG).style.display = "block";
+    }
+    setInterval(showIMG, 10000);
+  </script>
 
 </body>
 </html>
