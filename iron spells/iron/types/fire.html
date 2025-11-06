@@ -1,19 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spells</title>
+  <link rel="stylesheet" href="../css/MAIN.css">
   <style>
-    body {
-      background-color: #211d1d;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .banner {
-      max-width: 60%;
-      display: block;
-      margin: 0 auto 20px;
-    }
 
     .mainnav {
   display: flex;
@@ -24,34 +16,13 @@
   flex-grow: 1;
 }
 
-    .mainnav a {
-      flex: 1;
-      text-align: center;
-      padding: 15px 0;
-      color: white;
-      text-decoration: none;
-      border: 1px solid white;
-      margin: 0 2px;
-    }
-
-    .mainnav a:hover {
-      background-color: #555;
-    }
-
-    .mainnav a.on {
-      background-color: #426847;
-    }
-
     .container {
       max-width: 1000px;
       min-height: 700px;
-      margin: 30px auto;
-      padding: 20px;
       background-image: url('../gallery/backrounds/fire.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
-      border-radius: 5px;
     }
 
     .scroll-section {
@@ -63,110 +34,7 @@
       overflow-y: auto;
     }
     .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      padding: 5px 0;
-    }
-
-    .nav-toggle {
-      display: none;
-    }
-
-    .nav-close {
-      cursor: pointer;
-      color: white;
-      background-color: #333;
-      border-radius: 20px 0 0 20px;
-      padding: 26px 2px;
-      user-select: none;
-      text-align: center;
-    }
-
-    .mainnav {
-      display: flex;
-      justify-content: space-between;
-      background-color: #333;
-      border-radius: 0 20px 20px 0;
-      padding: 10px;
-      flex-grow: 1;
-    }
-
-    .mainnav a {
-      flex: 1;
-      text-align: center;
-      padding: 15px 0;
-      color: white;
-      text-decoration: none;
-      border: 1px solid white;
-      margin: 0 2px;
-    }
-
-    .mainnav a:hover {
-      background-color: #555;
-    }
-
-    .mainnav a.on {
-      background-color: #426847;
-    }
-
-    #nav-toggle:checked ~ .mainnav {
-      display: none;
-    }
-
-    #nav-toggle:checked ~ .nav-close {
-      border-radius: 20px;
-    }
-    .slime{
-    position: absolute;
-     left: 50%;
-     transform: translate(-50%,-20px);
-
-    }
-    .slime div{
-      width: 20px;
-      height: 20px;
-      background-image: url(../gallery/msc/slime.png);
-      background-repeat: no-repeat ;
-      background-size: contain;
-    }
-    .nav-stick{
-      display: none;
-    }
-    #nav-stick:checked ~ .nav-wrap {
-      position: initial;
-    }
-       #nav-stick:checked ~ .slime div {
-        background-image: url(../gallery/msc/blueslime.webp);
-    }
-    .spellnav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background-color: #333;
-      border-radius:  10px 10px 0 0;
-      padding: 10px;
-      margin-top: 0;
-    }
-
-    .spellnav a {
-      flex: 1;
-      text-align: center;
-      padding: 12px 0;
-      color: white;
-      text-decoration: none;
-      border: 1px solid white;
-      margin: 2px;
-      font-size: 14px;
-    }
-
-    .spellnav a:hover {
-      background-color: #555;
     }
 
     .spellnav a.on {
@@ -175,18 +43,21 @@
       font-weight: bold;
     }
 
-    img.spell-icon {
-      float: left;
-      max-width: 120px;
-      margin-right: 20px;
-    }
 
-    .des {
-      border: 1px solid white;
-      padding: 10px;
-      margin-bottom: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+
+
+.spell-box {
+  object-fit: contain;
+  max-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
     hr {
       border: none;
@@ -244,9 +115,8 @@
       </nav>
   
     <section class="scroll-section">
-      <img src="" class="spell-icon" alt="fire spell">
-      <section class="des">
-        <p><strong>Usage:</strong> Casts a fireball that explodes on impact.</p>
+      <section class="spell-box">
+        <img src="../gallery/spells/icons/fire/fire_arrow.png" class="spell-icon" alt="fire spell">
       </section>
 
       <hr>
