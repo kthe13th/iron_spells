@@ -1,0 +1,160 @@
+body {
+    background-color: #1b1818;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .banner {
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 5px 0;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  .nav-close {
+    cursor: pointer;
+    color: white;
+    background-color: #333;
+    border-radius: 20px 0 0 20px;
+    padding: 26px 2px;
+    user-select: none;
+    text-align: center;
+  }
+  
+  .mainnav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    border-radius: 0 20px 20px 0;
+    padding: 10px;
+    flex-grow: 1;
+  }
+  
+  .mainnav a {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    margin: 0 2px;
+    border-radius: 2px;
+  }
+  
+  .mainnav a:hover {
+    background-color: #555;
+  }
+  
+  .mainnav a.on {
+    font-weight: bold;
+  }
+  
+  #nav-toggle:checked ~ .mainnav {
+    display: none;
+  }
+  
+  #nav-toggle:checked ~ .nav-close {
+    border-radius: 20px;
+  }
+  
+  .slime {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -20px);
+  }
+  
+  .slime div {
+    width: 20px;
+    height: 20px;
+    background-image: url(../gallery/msc/slime.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .nav-stick {
+    display: none;
+  }
+  
+  #nav-stick:checked ~ .nav-wrap {
+    position: initial;
+  }
+  #nav-stick:checked ~ .slime div {
+    background-image: url(../gallery/msc/blueslime.webp);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .spellnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #333;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    margin-top: 0;
+  }
+  
+  .spellnav a {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    margin: 2px;
+    font-size: 14px;
+   
+  }
+  
+  .spellnav a:hover {
+    background-color: #555;
+  }
+  .spell-icon {
+    width: 120px;
+    image-rendering: pixelated;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #888;
+    margin: 20px 0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+  }
+  
+  th, td {
+    border: 1px solid #888;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #444;
+  }
+  
