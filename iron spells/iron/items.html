@@ -1,39 +1,251 @@
-<html>
-    <head>
- 
-    </head>
-    <body>
-    <a href="../index.html"><img src ="gallery/msc/banner.png"></a>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Items</title>
+  <link rel="stylesheet" href="css/MAIN.css">
+  <style>
+    .banner {
+      max-width: 60%;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .nav-wrap {
+      max-width: 800px;
+    }
+
+    .mainnav a:hover {
+      background-color: #555;
+    }
+
+    .mainnav a.on {
+        background-color: #426847;
+    }
+
+    .container {
+      color: #fffbee;
+      font-family: 'Georgia', serif;
+      max-width: 1100px;
+      background-image: url('gallery/backrounds/tile2.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 300px;
+    }
+
+    .list {
+      background: rgba(25, 25, 25, 0.9);
+      border: 1px solid rgba(255, 220, 120, 0.25);
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      padding: 25px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .list::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .item-name {
+      font-family: "Cinzel", serif;
+      font-size: 24px;
+      color: #e4dfd1;
+      text-shadow: 0 0 10px rgba(255, 210, 100, 0.7);
+      margin-bottom: 25px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .item-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .item-img {
+      box-sizing: border-box;
+      padding: 10px;
+      width: 222px;
+      height: 222px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 230, 160, 0.4);
+      background-color: #2a2525;
+      box-shadow: 0 0 20px rgba(255, 230, 160, 0.25), 0 0 40px rgba(255, 210, 120, 0.1);
+      image-rendering: pixelated;
+    }
+
+    .craft-grid {
+      box-sizing: border-box;
+      width: 222px;
+      height: 222px;
+      border-collapse: collapse;
+      border: 2px solid rgba(0, 0, 0, 0.9);
+      background: #d9c89a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 230, 160, 0.3), 0 0 60px rgba(255, 210, 120, 0.15);
+    }
+
+    .craft-grid td {
+      box-sizing: border-box;
+      width: calc((222px - 4px) / 3);
+      height: calc((222px - 4px) / 3);
+      border: 2px solid black;
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      background: radial-gradient(circle at center, #bfbfbf 0%, #a5a5a5 40%, #707070 90%);
+    }
+
+
+    .craft-grid td:hover {
+        background: radial-gradient(circle at center, #fff3cc 0%, #d2a94b 45%, #7a5c27 100%);
+    }
+
+    .craft-ing {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 4px rgba(255, 230, 160, 0.3));
+      image-rendering: pixelated;
+    }
+
+    .item-info {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 25px;
+    }
+
+    .item-info p {
+      margin: 6px 0;
+      line-height: 1.6;
+      color: #e4dfd1;
+    }
+
+    .stats {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      font-size: 15px;
+      background-color: rgba(30, 20, 0, 0.7);
+      color: #e4dfd1;
+    }
+
+    .stats tr {
+      display: flex;
+      width: 100%;
+    }
+
+    .stats th,
+    .stats td {
+      flex: 1;
+      border: 1px solid rgba(255, 230, 160, 0.3);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stats th {
+      background-color: rgba(236, 205, 133, 0.521);
+      font-weight: bold;
+    }
+
+    .stats td {
+      background-color: rgba(74, 75, 59, 0.493);
+    }
+
+    .note {
+      text-align: center;
+      font-style: italic;
+      color: #e4dfd1;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html">
+    <img src="gallery/msc/banner.png" alt="Banner" class="banner">
+  </a>
+
+  <input type="checkbox" id="nav-stick" class="nav-stick" />
+  <label for="nav-stick" class="slime" title="slime on!"><div></div></label>
+
+  <section class="nav-wrap">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
     <nav class="mainnav">
-    <a href="spells.html">spells</a>
-    <a href="spellbooks.html" >spellbooks</a>
-    <a href="items.html" class="on">items</a>
-    <a href="mechanics.html">mechanics</a>
+      <a href="spells.html">Spells</a>
+      <a href="spellbooks.html">Spellbooks</a>
+      <a href="items.html" class="on">Items</a>
+      <a href="mechanics.html">Mechanics</a>
     </nav>
-    <section>
-<img src=""><!-- item img on  left-->
-<p>desciption:</p>
-<img src=""><!-- crafting img on  left under the item img-->
-<table>
-    <tr>
-        <th>armor</th>
-        <th>dammage</th>
-        <th>durability</th>
-        <th>mana</th>
-        <th>cast time</th>
-        <th>spell coldown</th>
-        <th>spell power</th>
-    </tr>
-    <tr>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
-       <td></td>
-    </tr>
-</table>
-   </section>
-    </body>
+  </section>
+
+  <section class="container">
+    <article class="list">
+      <h2 class="item-name">Lightbringer Chestplate</h2>
+
+      <div class="item-box">
+        <img src="gallery/items/paladin_chestplate.png" alt="paladin_chestplate" class="item-img">
+
+        <table class="craft-grid">
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/gold_ingot.png" alt="gold_ingot" title="gold ingot"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/divine_soulshard.png" alt="divine_soulshard" title="divine soulshard"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/gold_ingot.png" alt="gold_ingot" title="gold ingot"></td>
+          </tr>
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/mithril_weave.png" alt="mithril_weave" title="mithril_weave"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/priest_robes.png" alt="priest_robes" title="priest_robes"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/mithril_weave.png" alt="mithril_weave" title="mithril_weave"></td>
+          </tr>
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/gold_ingot.png" alt="gold_ingot" title="gold ingot"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/mithril_weave.png" alt="mithril_weave" title="mithril weave"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/gold_ingot.png" alt="gold_ingot" title="gold ingot"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="item-info">
+        <p><strong>Description:</strong> The Arcane Aegis is a legendary shield infused with runes of power. It not only blocks physical blows but reflects spell damage back at attackers.</p>
+        <p><strong>Rarity:</strong> Legendary</p>
+        <p><strong>Type:</strong> Defensive Artifact</p>
+      </div>
+
+      <table class="stats">
+        <tr>
+          <th>Armor</th>
+          <th>Toughness</th>
+          <th>Durability</th>
+          <th>Mana</th>
+          <th>Knockback Resistance</th>
+          <th>Spell Power</th>
+        </tr>
+        <tr>
+          <td>+8</td>
+          <td>+4</td>
+          <td>1050</td>
+          <td>+150</td>
+          <td>+40%</td>
+          <td>+10%</td>
+        </tr>
+      </table>
+    </article>
+  </section>
+
+</body>
 </html>
