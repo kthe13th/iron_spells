@@ -1,163 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spellbook</title>
+  <link rel="stylesheet" href="css/MAIN.css">
   <style>
-    body {
-      background-color: #211d1d;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .banner {
-      max-width: 60%;
-      height: auto;
-      display: block;
-      margin: 0 auto 20px;
-    }
-
     .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
       max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      background: transparent;
-      padding: 5px 0;
     }
 
-    .nav-toggle {
-      display: none;
-    }
-
-    .nav-close {
-      cursor: pointer;
-      color: white;
-      background-color: #333;
-      border-radius: 20px 0 0 20px;
-      padding: 26px 2px;
-      user-select: none;
-      text-align: center;
-    }
-
-    .mainnav {
-      display: flex;
-      justify-content: space-between;
-      background-color: #333;
-      border-radius: 0 20px 20px 0;
-      padding: 10px;
-      flex-grow: 1;
-    }
-
-    .mainnav a {
-      flex: 1;
-      text-align: center;
-      padding: 15px 0;
-      color: white;
-      text-decoration: none;
-      border: 1px solid white;
-      margin: 0 2px;
-    }
-
-    .mainnav a:hover {
-      background-color: #555;
+    .container {
+      color: #fffbee;
+      font-family: 'Georgia', serif;
+      max-width: 1100px;
+      background-image: url('gallery/backrounds/bookshelf.webp');
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 520px;
     }
 
     .mainnav a.on {
       background-color: #426847;
     }
 
-    #nav-toggle:checked ~ .mainnav {
-      display: none;
+    .list {
+      background: rgba(25, 25, 25, 0.9);
+      border: 1px solid rgba(120, 180, 255, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      padding: 25px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
     }
 
-    #nav-toggle:checked ~ .nav-close {
-      border-radius: 20px;
+    .list::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(80,150,255,0.15) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 20px;
-      background-image: url('gallery/backrounds/bookshelf.webp');
-      background-repeat: repeat;
-      background-position: center;
-      background-size: 500px;
-      border-radius: 5px;
+    .item-name {
+      font-family: "Cinzel", serif;
+      font-size: 26px;
+      color: #d4e6ff;
+      text-shadow: 0 0 10px rgba(150,200,255,0.8);
+      margin-bottom: 25px;
+      text-align: center;
+      letter-spacing: 1px;
     }
 
-    .s-section {
-      background-color: rgba(0, 0, 0, 0.75);
-      color: white;
-      padding: 20px;
-      border-radius: 5px;
+    .item-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
     }
 
-    img.book-img,
-    img.craft-img {
-      max-width: 49%;
-      height: auto;
-      display: inline-block;
-      vertical-align: top;
-      border: 1px solid white;
-      border-radius: 5px;
-      margin-bottom: 20px;
-    }
-
-    .des {
-      border: 1px solid white;
+    .item-img {
+      box-sizing: border-box; 
       padding: 10px;
-      margin: 20px 0;
-      background-color: rgba(255, 255, 255, 0.1);
+      width: 222px;
+      height: 222px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 2px solid rgba(120, 180, 255, 0.4);
+      background-color: #0e1725;
+      box-shadow: 0 0 20px rgba(120, 200, 255, 0.25), 0 0 40px rgba(50, 120, 200, 0.1);
+      image-rendering: pixelated;
     }
 
-    table {
+    .craft-grid {
+      box-sizing: border-box; 
+      width: 222px;
+      height: 222px;
+      border-collapse: collapse;
+      border: 2px solid rgba(0, 0, 0, 0.9);
+      background: #a0b8d0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(90,150,255,0.4), 0 0 60px rgba(50,120,200,0.2);
+    }
+
+    .craft-grid td {
+      box-sizing: border-box; 
+      width: calc((222px - 4px) / 3);
+      height: calc((222px - 4px) / 3);
+      border: 2px solid black;
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      background: radial-gradient(circle at center, #bfbfbf 0%, #a5a5a5 40%, #707070 90%);
+      
+    }
+
+    .craft-grid td:hover {
+      background: radial-gradient(circle at center, #e0f0ff 0%, #4e7bb9 50%, #224c86 100%);
+    }
+
+    .craft-ing {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.3));
+      image-rendering: pixelated;
+    }
+
+    .item-info {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 25px;
+    }
+
+    .item-info p {
+      margin: 6px 0;
+      line-height: 1.6;
+      color: #cce0ff;
+    }
+
+    .stats {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      color: white;
+      margin-top: 25px;
+      font-size: 15px;
+      background-color: rgba(0, 0, 30, 0.7);
+      color: #d6eaff;
     }
+    .stats tr {
+  display: flex;
+  width: 100%;
+}
 
-    th {
-      background-color: #444;
-      padding: 10px;
+    .stats th, .stats td {
+      flex: 1;
+      border: 1px solid rgba(120, 180, 255, 0.3);
+      padding: 12px;
       text-align: center;
-      border: 1px solid #888;
     }
 
-    td {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
+    .stats th {
+      background-color: rgba(80, 130, 200, 0.4);
+      font-weight: bold;
+    }
+
+    .stats td {
+
+      background-color: rgba(10, 30, 60, 0.5);
+    }
+
+    .note {
       text-align: center;
-      border: 1px solid #888;
-    }
-
-    .slime {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -20px);
-    }
-
-    .slime div {
-      width: 20px;
-      height: 20px;
-      background-image: url(gallery/msc/slime.png);
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .nav-stick {
-      display: none;
-    }
-
-    #nav-stick:checked ~ .nav-wrap {
-      position: initial;
-    }
-
-    #nav-stick:checked ~ .slime div {
-      background-image: url(gallery/msc/blueslime.webp);
+      font-style: italic;
+      color: #9ebae0;
+      margin-top: 25px;
     }
   </style>
 </head>
@@ -182,29 +184,51 @@
   </section>
 
   <section class="container">
-    <section class="s-section">
-      <img src="" alt="Spellbook Image" class="book-img">
-      <img src="" alt="Crafting Image" class="craft-img">
+    <article class="list">
+      <h2 class="item-name">Flimsy Journal</h2>
 
-      <section class="des">
-        <p><strong>Usage:</strong> Grants spellcasting ability and enhances power. Required for all magic use.</p>
-      </section>
+      <div class="item-box">
+        <img src="gallery/items/books/copper_spell_book.png" alt="spellbook" class="item-img">
 
-      <table>
+        <table class="craft-grid">
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/copper_ingot.webp" alt="copper_ingot" title="copper_ingot"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+          </tr>
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/string.webp" alt="string" title="string"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+          </tr>
+          <tr>
+            <td><img class="craft-ing" src="gallery/items/crafting/copper_ingot.webp" alt="copper_ingot" title="copper_ingot"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+            <td><img class="craft-ing" src="gallery/items/crafting/paper.webp" alt="paper" title="paper"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="item-info">
+        <p><strong>Description:</strong> A low quality book that barely  is able to function as magic medium</p>
+        <p><strong>Type:</strong> Craftable</p>
+      </div>
+
+      <table class="stats">
         <tr>
-          <th>Mana</th>
-          <th>Cast Time</th>
-          <th>Spell Cooldown</th>
           <th>Spell Power</th>
+          <th>Cast Time</th>
+          <th>Cooldown</th>
+          <th>slots</th>
         </tr>
         <tr>
-          <td>20</td>
-          <td>1.2s</td>
-          <td>3.5s</td>
-          <td>+15%</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>6</td>
         </tr>
       </table>
-    </section>
+    </article>
   </section>
 
 </body>
