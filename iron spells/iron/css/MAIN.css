@@ -63,6 +63,7 @@ body {
   
   .mainnav a.on {
     font-weight: bold;
+    background-color: #426847;
   }
   
   #nav-toggle:checked ~ .mainnav {
