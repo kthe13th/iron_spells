@@ -1,41 +1,204 @@
-<html>
-    <head>
- 
-    </head>
-    <body>
-    <a href="../index.html"><img src ="gallery/msc/banner.png"></a>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mechanics</title>
+  <link rel="stylesheet" href="css/MAIN.css">
+
+  <style>
+        .nav-wrap {
+      max-width: 800px;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 25px 30px;
+        background: #262323;
+        border: 1px solid #3a3a3a;
+        border-radius: 10px;
+        box-shadow:
+            0 0 18px rgba(0, 0, 0, 0.55),
+            inset 0 0 8px rgba(0, 0, 0, 0.25);
+        color: #e2e2e2;
+        line-height: 1.6;
+    }
+
+    .container h2 {
+        margin-top: 25px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #444;
+        color: #f3f3f3;
+        font-size: 22px;
+    }
+
+    .butons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+
+    .butons button {
+        background: #2e2b2b;
+        border: 1px solid #555;
+        padding: 10px 18px;
+        border-radius: 6px;
+        color: #e8e8e8;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background 0.15s, border-color 0.15s, transform 0.12s;
+    }
+
+    .butons .tab-on {
+        background: #3b3737;
+        border-color: #888;
+    }
+
+    .butons button:hover {
+        background: #3b3737;
+        border-color: #777;
+        transform: translateY(-2px);
+    }
+
+    .butons button:active {
+        transform: translateY(0);
+        background: #353232;
+    }
+    .infocard {
+        background: #1f1d1d;
+        border: 1px solid #3b3b3b;
+        border-radius: 8px;
+        padding: 15px 18px;
+        margin: 15px 0;
+        box-shadow: inset 0 0 8px rgba(0,0,0,0.35);
+    }
+    .note {
+        background: #2d2929;
+        padding: 10px 12px;
+        border-left: 4px solid #6bc48b;
+        border-radius: 4px;
+        margin: 10px 0;
+        color: #d9d9d9;
+    }
+    .tabcontent {
+        display: none;
+    }
+    .highlight {
+  animation: Flash 2s;
+}
+
+@keyframes Flash {
+  0% { background-color: gold; }
+  100% { background-color: inherit; }
+}
+
+  </style>
+</head>
+<body>
+
+  <a href="../index.html">
+    <img src="gallery/msc/banner.png" alt="Banner" class="banner">
+  </a>
+
+  <input type="checkbox" id="nav-stick" class="nav-stick" />
+  <label for="nav-stick" class="slime" title="slime on!"><div></div></label>
+
+  <section class="nav-wrap">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-close" title="Hide navigation">|||</label>
+
     <nav class="mainnav">
-    <a href="spells.html">spells</a>
-    <a href="spellbooks.html" >spellbooks</a>
-    <a href="items.html" >items</a>
-    <a href="mechanics.html"class="on">mechanics</a>
+      <a href="spells.html">Spells</a>
+      <a href="spellbooks.html">Spellbooks</a>
+      <a href="items.html">Items</a>
+      <a href="mechanics.html" class="on">Mechanics</a>
     </nav>
-    <section>
+  </section>
+
+  <section class="container">
 
     <section class="butons">
-    <button>blocks</button>
-    <button>mobs</button>
-    <button>structures</button>
-    <button>msc</button>
-    </section>
-<hr>
-
-    <section id="blocks" style="display: block;">
+      <button data-tab="tab1" onclick="showTab('tab1')" class="tab tab-on">Blocks</button>
+      <button data-tab="tab2" onclick="showTab('tab2')" class="tab">Mobs</button>
+      <button data-tab="tab3" onclick="showTab('tab3')" class="tab">Structures</button>
+      <button data-tab="tab4" onclick="showTab('tab4')" class="tab">Misc</button>
     </section>
 
+    <hr>
 
-    <section id="mobs">
+    <section id="tab1" class="tabcontent" style="display: block;">
+      <h2>Blocks</h2>
+      <div class="infocard">
+        <strong>Magic Conductor</strong><br>
+        Transfers mana between nearby structures.
+      </div>
+      <div class="note">Tip: Conductors work through walls.</div>
     </section>
 
-
-    <section id="structures">
+    <section id="tab2" class="tabcontent">
+      <h2>Mobs</h2>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div class="infocard" id="flame-bearer">
+        
+        <strong>Flame-bearer</strong><br>
+        A flame themed boss that is accompanied by two guards.
+      </div>
     </section>
 
-
-    <section id="msc">
+    <section id="tab3" class="tabcontent">
+      <h2>Structures</h2>
+      <div class="infocard">
+        <strong>Mana Altar</strong><br>
+        Central crafting station for spell-based items.
+      </div>
     </section>
 
+    <section id="tab4" class="tabcontent">
+      <h2>Misc</h2>
+      <div class="infocard">
+        Extra mechanics and unique interactions.
+      </div>
+    </section>
 
-   </section>
-    </body>
+  </section>
+
+  <script>
+var currentTab = "tab1";
+function showTab(currentTab) {
+    var tab = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tab.length; i++) {
+    tab[i].style.display = "none";
+  }
+  var button = document.getElementsByClassName("tab");
+  for (var i = 0; i < button.length; i++){
+    key = button[i];
+    key.classList.remove("tab-on");
+    var buttonTab = button[i].getAttribute("data-tab");
+    if (buttonTab === currentTab) {
+        key.classList.add("tab-on", buttonTab);
+    }
+  }
+  document.getElementById(currentTab).style.display = "block";
+}
+showTab(currentTab);
+
+window.onload = function() {
+  var link = document.getElementById(location.hash.slice(1));
+  if(link){
+    var tab = link.closest(".tabcontent");
+    showTab(tab.id);     
+    link.scrollIntoView();
+    link.classList.add("highlight");
+    setTimeout(function(){
+      link.classList.remove("highlight");
+    }, 2000); 
+    history.replaceState(null, null, ' ');
+  } else {
+    showTab("tab1");
+  }
+};
+  </script>
+
+</body>
 </html>
